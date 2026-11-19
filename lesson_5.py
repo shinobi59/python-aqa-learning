@@ -6,8 +6,10 @@ users = [
     {"id": 5, "name": "Anna", "is_active": True}
 ]
 
+
 def get_active_users(users):
+    user = []
     for user in users:
-        user.append({"id": user["id"], "name": user["name"], "is_active": user["is_active"]})
-        if user["is_active": True]:
-            return user["name"]
+        if user["is_active"] is True:
+            user.append(user)
+    return user
