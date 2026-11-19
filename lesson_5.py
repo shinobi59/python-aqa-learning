@@ -8,8 +8,8 @@ users = [
 
 
 def get_active_users(users):
-    user = []
+    active_users = []
     for user in users:
         if user["is_active"] is True:
-            user.append(user)
-    return user
+            user.append(active_users)
+    return users
