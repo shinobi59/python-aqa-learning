@@ -1,7 +1,7 @@
 
 def test_get_user(base_url, api_session):
     url = f"{base_url}/users/1"
-    response = api_session.get(url)
+    response = api_session.get(url, timeout=10)
 
     assert response.status_code == 200
 
@@ -10,7 +10,7 @@ def test_get_user(base_url, api_session):
 
 def test_get_posts(base_url, api_session):
     url = f"{base_url}/posts"
-    response = api_session.get(url)
+    response = api_session.get(url, timeout=10)
     assert response.status_code == 200
 
     data = response.json()
@@ -19,5 +19,5 @@ def test_get_posts(base_url, api_session):
 
 def test_user_not_found(base_url, api_session):
     url = f"{base_url}/users/99999"
-    response = api_session.get(url)
+    response = api_session.get(url, timeout=10)
     assert response.status_code == 404
