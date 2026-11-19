@@ -17,11 +17,11 @@ response_json = """
 user = json.loads(response_json)
 
 def validate_user_response(user):
-    assert user["status"] == "success"
-    assert user["code"] == 200
-    assert user["data"]["user_id"] == 15
-    assert user["data"]["is_active"] is True
-    assert ["admin"] in response_json["data"]["roles"]
+    assert user["status"] == "success", "Ожидался success"
+    assert user["code"] == 200, "Ожидался HTTP-код 200"
+    assert user["data"]["user_id"] == 15, "Ожидался id 15"
+    assert user["data"]["is_active"] is True, "Ожидалось True"
+    assert user["data"]["roles"] == ["user", "admin"]
     return True
 
-print(validate_user_response)
+print(validate_user_response(user))
