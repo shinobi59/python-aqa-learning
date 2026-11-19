@@ -1,8 +1,5 @@
 def check_response(status_code):
-    if status_code in [200, 201]:
-        return True
-    else:
-        return False
+    if status_code in [200, 201]: return True
 
 print(check_response(200))
 print(check_response(201))
