@@ -6,8 +6,12 @@ import requests
 def base_url():
     return "https://jsonplaceholder.typicode.com"
 
-@pytest.fixture
+@pytest.fixture(scope="module")
 def api_session():
+    print("Создание сессии")
     session = requests.Session()
+
     yield session
+
+    print("Закрытие сессии")
     session.close()
