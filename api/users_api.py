@@ -1,4 +1,4 @@
-class UserAPI:
+class UsersAPI:
     def __init__(self, base_url, session):
         self.base_url = base_url
         self.session = session
@@ -7,7 +7,7 @@ class UserAPI:
         url = f"{self.base_url}/users/{user_id}"
         return self.session.get(url, timeout=10)
 
-    def get_post(self):
+    def get_posts(self):
         url = f"{self.base_url}/posts"
         return self.session.get(url, timeout=10)
 

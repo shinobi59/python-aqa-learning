@@ -1,5 +1,3 @@
-import requests
-
 
 def test_get_user(users_api):
     response = users_api.get_user(1)

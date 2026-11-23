@@ -19,5 +19,5 @@ def api_session():
     session.close()
 
 @pytest.fixture
-def users_api(api_session, base_url):
+def users_api(base_url, api_session):
     return UsersAPI(api_session, base_url)
