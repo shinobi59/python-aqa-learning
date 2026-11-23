@@ -20,4 +20,4 @@ def api_session():
 
 @pytest.fixture
 def users_api(base_url, api_session):
-    return UsersAPI(api_session, base_url)
+    return UsersAPI(base_url, api_session)
