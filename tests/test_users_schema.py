@@ -15,6 +15,7 @@ def test_get_user_schema(users_api):
 
     data = response.json()
 
+    assert data["id"] == 1
     validate(instance=data, schema=user_schema)
 
 def test_get_users_schema(users_api):
@@ -23,6 +24,7 @@ def test_get_users_schema(users_api):
 
     data = response.json()
 
+    assert len(data) == 10
     validate(instance=data, schema=users_schema)
 
 def test_created_user_schema(users_api):
