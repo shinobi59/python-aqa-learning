@@ -41,9 +41,9 @@ def test_invalid_users(users_api, user_id, expected_status):
         (5, 200),
         (10, 200),
         (999, 404),
-        (9999, 404),
+        (99999, 404),
     ],
-    ids=["valid", "invalid"],
+    ids=["valid_1", "valid_5", "valid_10", "invalid_999", "invalid_99999"],
 )
 def test_user_status(users_api, user_id, expected_status):
     response = users_api.get_user(user_id)
