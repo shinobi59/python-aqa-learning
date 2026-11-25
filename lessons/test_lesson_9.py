@@ -17,6 +17,7 @@ def test_existing_users(user_id, expected_username):
     assert data["id"] == user_id
     assert data["username"] == expected_username
 
+
 @pytest.mark.parametrize("user_id", [999, 1000, 99999])
 def test_nonexistent_users(user_id):
     url = f"https://jsonplaceholder.typicode.com/users/{user_id}"
