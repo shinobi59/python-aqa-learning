@@ -19,6 +19,9 @@ def test_update_user(users_api):
     updated_user = users_api.update_user(1, payload)
     assert updated_user.status_code == 200
     assert updated_user.json()["id"] == 1
+    assert updated_user.json()["name"] == payload["name"]
+    assert updated_user.json()["username"] == payload["username"]
+    assert updated_user.json()["email"] == payload["email"]
 
 def test_patch_user(users_api):
     updated_user = users_api.patch_user(2, payload={"name": "Max"})
@@ -29,4 +32,4 @@ def test_patch_user(users_api):
 def test_delete_user(users_api):
     deleted_user = users_api.delete_user(3)
     assert deleted_user.status_code == 200
-    assert isinstance(deleted_user.json(), dict)
+    assert deleted_user.json() == {}
