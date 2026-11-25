@@ -1,4 +1,4 @@
-users_schema = {
+user_schema = {
     "type": "object",
     "properties": {
         "id": {"type": "integer"},
@@ -15,6 +15,29 @@ users_schema = {
         },
         "required": ["street", "city", "zipcode"]
         },
-        "company": {"type": "string"},
-    }
+        "company": {"type": "object",
+            "properties": {
+                "name": {"type": "string"},
+                "catchPhrase": {"type": "string"},
+                "bs": {"type": "string"},
+            },
+            "required": ["name", "catchPhrase", "bs"]},
+    },
+    "required": ["id", "username", "name", "email", "phone", "website", "address", "company"]
+}
+
+users_schema = {
+    "type": "array",
+    "items": user_schema
+}
+
+created_user_schema = {
+    "type": "object",
+    "properties": {
+        "id": {"type": "integer"},
+        "name": {"type": "string"},
+        "username": {"type": "string"},
+        "email": {"type": "string"},
+    },
+    "required": ["id", "name", "username", "email"]
 }
