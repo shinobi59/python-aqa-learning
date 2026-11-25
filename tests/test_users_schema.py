@@ -1,7 +1,9 @@
 from jsonschema import validate
-from schemas.users_schema import user_schema
-from schemas.users_schema import users_schema
-from schemas.users_schema import created_user_schema
+from schemas.users_schema import (
+    user_schema,
+    users_schema,
+    created_user_schema,
+)
 
 payload = {
     "name": "Maks",
@@ -33,4 +35,7 @@ def test_created_user_schema(users_api):
 
     data = response.json()
 
+    assert data["name"] == payload["name"]
+    assert data["username"] == payload["username"]
+    assert data["email"] == payload["email"]
     validate(instance=data, schema=created_user_schema)
